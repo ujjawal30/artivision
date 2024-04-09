@@ -19,13 +19,13 @@ const Sidebar = () => {
           <SignedIn>
             <div className="hidden w-full flex-col items-start gap-2 md:flex">
               {navLinks.map((link) => (
-                <NavLink {...link} />
+                <NavLink key={link.label} {...link} />
               ))}
             </div>
 
             <div className="hidden w-full flex-col items-start gap-2 md:flex">
               {userNavLinks.map((link) => (
-                <NavLink {...link} />
+                <NavLink key={link.label} {...link} />
               ))}
               <div className="flex items-center justify-center cursor-pointer gap-2 p-4">
                 <UserButton afterSignOutUrl="/" showName />
