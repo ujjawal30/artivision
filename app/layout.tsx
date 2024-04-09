@@ -20,7 +20,7 @@ const Layout = ({
   children: ReactNode;
 }>) => {
   return (
-    <ClerkProvider>
+    <ClerkProvider appearance={{ variables: { colorPrimary: "#7b1c44" } }}>
       <html lang="en">
         <body className={cn("antialiased", inter.className)}>{children}</body>
       </html>
