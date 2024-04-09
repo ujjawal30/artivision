@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: "AI-powered art creation platform",
 };
 
-const RootLayout = ({
+const Layout = ({
   children,
 }: Readonly<{
   children: ReactNode;
@@ -25,4 +25,4 @@ const RootLayout = ({
   );
 };
 
-export default RootLayout;
+export default Layout;
