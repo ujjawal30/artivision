@@ -1,9 +1,10 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import User, { IUser } from "../models/user.model";
-import { connectToDatabase } from "../mongoose";
-import { handleError } from "../utils";
+
+import { connectToDatabase } from "@/lib/mongoose";
+import User, { IUser } from "@/lib/models/user.model";
+import { handleError } from "@/lib/utils";
 
 export const createUser = async (
   user: CreateUserParams
@@ -50,7 +51,9 @@ export const updateUser = async (
   }
 };
 
-export const deleteUser = async (userId: string): Promise<void> => {
+export const deleteUser = async (
+  userId: string
+): Promise<IUser | undefined> => {
   try {
     await connectToDatabase();
 
@@ -61,6 +64,8 @@ export const deleteUser = async (userId: string): Promise<void> => {
     if (!deletedUser) handleError("User delete failed!!!");
 
     revalidatePath("/");
+
+    return JSON.parse(JSON.stringify(deletedUser));
   } catch (error) {
     handleError(error);
   }
