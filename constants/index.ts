@@ -8,7 +8,6 @@ import {
   StarsIcon,
   UserIcon,
 } from "lucide-react";
-import { NavLink } from "@/types";
 
 export const navLinks: NavLink[] = [
   {

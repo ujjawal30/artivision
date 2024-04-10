@@ -1,4 +1,4 @@
-import { LucideIcon } from "lucide-react";
+type LucideIcon = import("lucide-react").LucideIcon;
 
 declare type NavLink = {
   label: string;
