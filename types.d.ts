@@ -19,3 +19,15 @@ declare type UpdateUserParams = {
   lastName: string;
   photo: string;
 };
+
+declare type TransformationTypeKey =
+  | "restore"
+  | "fill"
+  | "remove"
+  | "recolor"
+  | "remove-bg";
+
+declare type SearchParamProps = {
+  params: { id: string; type: TransformationTypeKey };
+  searchParams: { [key: string]: string | string[] | undefined };
+};

@@ -54,3 +54,45 @@ export const userNavLinks: NavLink[] = [
     icon: BadgeIndianRupeeIcon,
   },
 ];
+
+export const transformationTypes = {
+  restore: {
+    type: "restore",
+    title: "Restore Image",
+    subtitle: "Refine images by removing noise and imperfections",
+    config: { restore: true },
+    icon: ImageIcon,
+  },
+  fill: {
+    type: "fill",
+    title: "Generative Fill",
+    subtitle: "Enhance an image's dimensions using AI outpainting",
+    config: { fillBackground: true },
+    icon: StarsIcon,
+  },
+  remove: {
+    type: "remove",
+    title: "Object Remove",
+    subtitle: "Identify and eliminate objects from images",
+    config: {
+      remove: { prompt: "", removeShadow: true, multiple: true },
+    },
+    icon: ScanLine,
+  },
+  recolor: {
+    type: "recolor",
+    title: "Object Recolor",
+    subtitle: "Identify and recolor objects from the image",
+    config: {
+      recolor: { prompt: "", to: "", multiple: true },
+    },
+    icon: Settings2Icon,
+  },
+  "remove-bg": {
+    type: "remove-bg",
+    title: "Background Remove",
+    subtitle: "Removes the background of the image using AI",
+    config: { "remove-bg": true },
+    icon: CameraIcon,
+  },
+};
