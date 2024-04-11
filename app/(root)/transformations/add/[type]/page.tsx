@@ -1,13 +1,32 @@
-import Header from "@/components/shared/Header";
-import { transformationTypes } from "@/constants";
 import React from "react";
 
-const AddTransformationsPage = ({ params: { type } }: SearchParamProps) => {
+import { transformationTypes } from "@/constants";
+import Header from "@/components/shared/Header";
+import TransformationForm from "@/components/forms/TransformationForm";
+import { auth } from "@clerk/nextjs";
+import { getUser } from "@/lib/actions/user.actions";
+import { redirect } from "next/navigation";
+
+const AddTransformationsPage = async ({
+  params: { type },
+}: SearchParamProps) => {
+  const { userId } = auth();
+  if (!userId) redirect("/sign-in");
+
+  const userInfo = await getUser(userId);
+
   const transformation = transformationTypes[type];
 
   return (
     <div>
       <Header title={transformation.title} subtitle={transformation.subtitle} />
+
+      <TransformationForm
+        action="Add"
+        userId={userInfo?._id}
+        type={transformation.type as TransformationTypeKey}
+        creditBalance={userInfo?.creditBalance || 3}
+      />
     </div>
   );
 };

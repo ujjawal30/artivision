@@ -1,4 +1,5 @@
 type LucideIcon = import("lucide-react").LucideIcon;
+type IImage = import("@/lib/models/image.model").IImage;
 
 declare type NavLink = {
   label: string;
@@ -30,4 +31,12 @@ declare type TransformationTypeKey =
 declare type SearchParamProps = {
   params: { id: string; type: TransformationTypeKey };
   searchParams: { [key: string]: string | string[] | undefined };
+};
+
+declare type TransformationFormProps = {
+  action: "Add" | "Update";
+  data?: IImage | null;
+  userId: string;
+  type: TransformationTypeKey;
+  creditBalance: number;
 };

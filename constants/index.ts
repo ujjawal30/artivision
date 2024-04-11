@@ -96,3 +96,11 @@ export const transformationTypes = {
     icon: CameraIcon,
   },
 };
+
+export const defaultValues = {
+  title: "",
+  aspectRatio: "",
+  color: "",
+  prompt: "",
+  publicId: "",
+};
