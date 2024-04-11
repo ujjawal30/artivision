@@ -9,12 +9,12 @@ import {
   FormMessage,
   FormLabel,
 } from "@/components/ui/form";
-import { formSchema } from "@/components/forms/TransformationForm";
+import { TransformationsFormSchema } from "@/lib/schemas/transformationsForm.schema";
 
 interface CustomFieldProps {
-  control: Control<z.infer<typeof formSchema>> | undefined;
+  control: Control<z.infer<typeof TransformationsFormSchema>> | undefined;
   render: (props: { field: any }) => ReactNode;
-  name: keyof z.infer<typeof formSchema>;
+  name: keyof z.infer<typeof TransformationsFormSchema>;
   formLabel?: string;
   className?: string;
 }

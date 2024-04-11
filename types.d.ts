@@ -21,6 +21,22 @@ declare type UpdateUserParams = {
   photo: string;
 };
 
+declare type Transformations = {
+  restore?: boolean;
+  fillBackground?: boolean;
+  remove?: {
+    prompt: string;
+    removeShadow?: boolean;
+    multiple?: boolean;
+  };
+  recolor?: {
+    prompt?: string;
+    to: string;
+    multiple?: boolean;
+  };
+  "remove-bg"?: boolean;
+};
+
 declare type TransformationTypeKey =
   | "restore"
   | "fill"
@@ -35,8 +51,9 @@ declare type SearchParamProps = {
 
 declare type TransformationFormProps = {
   action: "Add" | "Update";
-  data?: IImage | null;
   userId: string;
   type: TransformationTypeKey;
   creditBalance: number;
+  data?: IImage | null;
+  config?: Transformations | null;
 };
