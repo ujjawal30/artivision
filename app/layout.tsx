@@ -6,6 +6,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 
 import { cn } from "@/lib/utils";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ const Layout = ({
     <ClerkProvider appearance={{ variables: { colorPrimary: "#7b1c44" } }}>
       <html lang="en">
         <body className={cn("antialiased", inter.className)}>{children}</body>
+        <Toaster />
       </html>
     </ClerkProvider>
   );
