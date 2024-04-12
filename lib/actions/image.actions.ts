@@ -8,11 +8,11 @@ import { handleError } from "../utils";
 import User from "../models/user.model";
 import { redirect } from "next/navigation";
 
-export const addImage = async ({
-  image,
-  userId,
-  path,
-}: AddImageParams): Promise<IImage | undefined> => {
+export const addImage = async (
+  imageData: TransformedImageData,
+  userId: string,
+  path: string
+): Promise<IImage | undefined> => {
   try {
     await connectToDatabase();
 
@@ -21,7 +21,7 @@ export const addImage = async ({
     if (!author) handleError("User not found");
 
     const newImage = await Image.create({
-      ...image,
+      ...imageData,
       author: author?._id,
     });
 
@@ -51,20 +51,21 @@ export const getImage = async (
     handleError(error);
   }
 };
-export const updateImage = async ({
-  image,
-  userId,
-  path,
-}: UpdateImageParams): Promise<IImage | undefined> => {
+export const updateImage = async (
+  imageId: string,
+  imageData: TransformedImageData,
+  userId: string,
+  path: string
+): Promise<IImage | undefined> => {
   try {
     await connectToDatabase();
 
-    const imageToUpdate = await Image.findById(image._id);
+    const imageToUpdate = await Image.findById(imageId);
 
     if (!imageToUpdate || imageToUpdate.author?._id !== userId)
       handleError("Unauthorized or image not found");
 
-    const updatedImage = await Image.findByIdAndUpdate(image._id, image, {
+    const updatedImage = await Image.findByIdAndUpdate(imageId, imageData, {
       new: true,
     });
 

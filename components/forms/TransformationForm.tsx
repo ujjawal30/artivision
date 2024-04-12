@@ -27,6 +27,9 @@ import { CustomField } from "@/components/miscellaneous/CustomField";
 import MediaUploader from "@/components/forms/MediaUploader";
 import TransformedImage from "../shared/TransformedImage";
 import { updateCredits } from "@/lib/actions/user.actions";
+import { getCldImageUrl } from "next-cloudinary";
+import { addImage, updateImage } from "@/lib/actions/image.actions";
+import { useRouter } from "next/navigation";
 
 const TransformationForm = ({
   action,
@@ -57,15 +60,76 @@ const TransformationForm = ({
         }
       : defaultValues;
 
+  const router = useRouter();
   const form = useForm<z.infer<typeof TransformationsFormSchema>>({
     resolver: zodResolver(TransformationsFormSchema),
     defaultValues: initialValues,
   });
 
-  const onSubmitHandler = (
+  const onSubmitHandler = async (
     values: z.infer<typeof TransformationsFormSchema>
   ) => {
     console.log(values);
+
+    setIsSubmitting(true);
+
+    if (data || image) {
+      const transformationURL = getCldImageUrl({
+        width: image?.width,
+        height: image?.height,
+        src: image?.publicId || "",
+        ...transformationConfig,
+      });
+
+      const imageData: TransformedImageData = {
+        title: values.title,
+        publicId: image?.publicId || "",
+        transformationType: type,
+        height: image?.height || 0,
+        width: image?.width || 0,
+        config: transformationConfig,
+        secureURL: image?.secureURL || "",
+        transformationURL: transformationURL,
+        aspectRatio: values.aspectRatio,
+        prompt: values.prompt,
+        color: values.color,
+      };
+
+      if (action === "Add") {
+        try {
+          const newImage = await addImage(imageData, userId, "/");
+
+          if (newImage) {
+            form.reset();
+            setImage(data);
+            router.push(`/transformations/${newImage._id}`);
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      if (action === "Update") {
+        try {
+          const updatedImage = await updateImage(
+            data?._id,
+            imageData,
+            userId,
+            `/transformations/${data?._id}`
+          );
+
+          if (updatedImage) {
+            form.reset();
+            setImage(data);
+            router.push(`/transformations/${updatedImage._id}`);
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    }
+
+    setIsSubmitting(false);
   };
 
   const onSelectFieldHandler = (
