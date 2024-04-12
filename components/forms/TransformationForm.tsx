@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/select";
 import { CustomField } from "@/components/miscellaneous/CustomField";
 import MediaUploader from "@/components/forms/MediaUploader";
+import TransformedImage from "../shared/TransformedImage";
 
 const TransformationForm = ({
   action,
@@ -226,6 +227,15 @@ const TransformationForm = ({
                 type={type}
               />
             )}
+          />
+
+          <TransformedImage
+            image={image}
+            type={type}
+            title={form.getValues().title}
+            isTransforming={isTransforming}
+            setIsTransforming={setIsTransforming}
+            transformationConfig={transformationConfig}
           />
         </div>
 

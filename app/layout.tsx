@@ -23,8 +23,10 @@ const Layout = ({
   return (
     <ClerkProvider appearance={{ variables: { colorPrimary: "#7b1c44" } }}>
       <html lang="en">
-        <body className={cn("antialiased", inter.className)}>{children}</body>
-        <Toaster />
+        <body className={cn("antialiased", inter.className)}>
+          {children}
+          <Toaster />
+        </body>
       </html>
     </ClerkProvider>
   );
