@@ -26,6 +26,7 @@ import {
 import { CustomField } from "@/components/miscellaneous/CustomField";
 import MediaUploader from "@/components/forms/MediaUploader";
 import TransformedImage from "../shared/TransformedImage";
+import { updateCredits } from "@/lib/actions/user.actions";
 
 const TransformationForm = ({
   action,
@@ -113,6 +114,7 @@ const TransformationForm = ({
 
     startTransition(async () => {
       // updateCredits
+      await updateCredits(userId, -1);
     });
   };
 
