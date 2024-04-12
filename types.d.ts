@@ -48,7 +48,7 @@ declare type Transformations = {
     to: string;
     multiple?: boolean;
   };
-  "remove-bg"?: boolean;
+  removeBackground?: boolean;
 };
 
 declare type TransformationTypeKey =
