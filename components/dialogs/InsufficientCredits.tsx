@@ -1,7 +1,9 @@
 "use client";
 
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { BadgeIndianRupeeIcon } from "lucide-react";
 
 import {
   AlertDialog,
@@ -13,8 +15,6 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { BadgeIndianRupeeIcon } from "lucide-react";
-import { useEffect, useState } from "react";
 
 const InsufficientCredits = () => {
   const [isMounted, setIsMounted] = useState(false);

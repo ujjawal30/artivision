@@ -1,12 +1,12 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-
-import { connectToDatabase } from "../mongoose";
-import Image, { IImage } from "../models/image.model";
-import { handleError } from "../utils";
-import User from "../models/user.model";
 import { redirect } from "next/navigation";
+
+import { connectToDatabase } from "@/lib/mongoose";
+import Image, { IImage } from "@/lib/models/image.model";
+import User from "@/lib/models/user.model";
+import { handleError } from "@/lib/utils";
 
 export const addImage = async (
   imageData: TransformedImageData,

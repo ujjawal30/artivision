@@ -1,11 +1,12 @@
 "use client";
 
 import React from "react";
-import { Button } from "../ui/button";
+import { PlaceholderValue } from "next/dist/shared/lib/get-img-props";
 import { DownloadIcon, LoaderIcon } from "lucide-react";
 import { CldImage } from "next-cloudinary";
+
 import { dataUrl, debounce, getImageSize } from "@/lib/utils";
-import { PlaceholderValue } from "next/dist/shared/lib/get-img-props";
+import { Button } from "@/components/ui/button";
 
 const TransformedImage = ({
   image,
