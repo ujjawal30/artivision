@@ -25,6 +25,15 @@ const Home = () => {
           ))}
         </ul>
       </section>
+
+      <section className="sm:mt-12">
+        <div className="md:flex justify-between items-center mb-6 flex flex-col gap-5 md:flex-row">
+          <h2 className="text-3xl font-bold md:text-4xl text-dark-600">
+            Recent Edits
+          </h2>
+          {<Searchbar />}
+        </div>
+      </section>
     </main>
   );
 };

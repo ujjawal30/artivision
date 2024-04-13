@@ -1,6 +1,7 @@
 import { aspectRatioKey, aspectRatioOptions } from "@/constants";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import qs from "qs";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -31,6 +32,36 @@ export function getImageSize(
     );
   }
   return image?.[dimension] || 1000;
+}
+
+export function formUrlQuery(
+  queryString: string,
+  key: string,
+  value: string | number | null
+) {
+  const params = { ...qs.parse(queryString.toString()), [key]: value };
+
+  return `${window.location.pathname}?${qs.stringify(params, {
+    skipNulls: true,
+  })}`;
+}
+
+export function removeKeysFromQuery(
+  queryString: string,
+  keysToRemove: string[]
+) {
+  const currentUrl = qs.parse(queryString);
+
+  keysToRemove.forEach((key) => {
+    delete currentUrl[key];
+  });
+
+  // Remove null or undefined values
+  Object.keys(currentUrl).forEach(
+    (key) => currentUrl[key] == null && delete currentUrl[key]
+  );
+
+  return `${window.location.pathname}?${qs.stringify(currentUrl)}`;
 }
 
 export function debounce(func: (...args: any[]) => void, delay: number) {
