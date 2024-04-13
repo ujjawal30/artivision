@@ -127,3 +127,5 @@ export const defaultValues = {
 };
 
 export type aspectRatioKey = keyof typeof aspectRatioOptions;
+
+export const CREDIT_FEE = -1;

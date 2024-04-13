@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import {
+  CREDIT_FEE,
   aspectRatioKey,
   aspectRatioOptions,
   defaultValues,
@@ -30,6 +31,7 @@ import { updateCredits } from "@/lib/actions/user.actions";
 import { getCldImageUrl } from "next-cloudinary";
 import { addImage, updateImage } from "@/lib/actions/image.actions";
 import { useRouter } from "next/navigation";
+import InsufficientCredits from "../dialogs/InsufficientCredits";
 
 const TransformationForm = ({
   action,
@@ -156,15 +158,15 @@ const TransformationForm = ({
     type: "recolor" | "remove",
     onChangeField: (value: string) => void
   ) => {
-    debounce(() => {
-      setNewTransformation((prev: any) => ({
-        ...prev,
-        [type]: {
-          ...prev?.[type],
-          [fieldName === "prompt" ? "prompt" : "to"]: value,
-        },
-      }));
-    }, 1000);
+    // debounce(() => {
+    setNewTransformation((prev: any) => ({
+      ...prev,
+      [type]: {
+        ...prev?.[type],
+        [fieldName === "prompt" ? "prompt" : "to"]: value,
+      },
+    }));
+    // }, 1000);
 
     return onChangeField(value);
   };
@@ -178,7 +180,7 @@ const TransformationForm = ({
 
     startTransition(async () => {
       // updateCredits
-      await updateCredits(userId, -1);
+      await updateCredits(userId, CREDIT_FEE);
     });
   };
 
@@ -190,6 +192,7 @@ const TransformationForm = ({
 
   return (
     <Form {...form}>
+      {creditBalance < Math.abs(CREDIT_FEE) && <InsufficientCredits />}
       <form onSubmit={form.handleSubmit(onSubmitHandler)} className="space-y-8">
         <CustomField
           control={form.control}

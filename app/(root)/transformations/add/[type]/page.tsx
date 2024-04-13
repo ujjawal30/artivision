@@ -29,6 +29,10 @@ const AddTransformationsPage = async ({
           creditBalance={userInfo?.creditBalance || 3}
         />
       </section>
+
+      {/* {(userInfo?.creditBalance || 3) < Math.abs(CREDIT_FEE) && (
+        <InsufficientCredits />
+      )} */}
     </div>
   );
 };
