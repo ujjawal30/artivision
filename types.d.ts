@@ -21,6 +21,18 @@ declare type UpdateUserParams = {
   photo: string;
 };
 
+declare type AllImagesParams = {
+  limit?: number;
+  page: number;
+  searchQuery?: string;
+};
+
+declare type AllImagesData = {
+  data: IImage[];
+  totalPages: number;
+  savedImages: number;
+};
+
 declare type TransformedImageData = {
   title: string;
   publicId: string;

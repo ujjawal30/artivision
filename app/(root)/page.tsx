@@ -1,16 +1,16 @@
 import Link from "next/link";
 
 import { navLinks } from "@/constants";
+import { getAllImages } from "@/lib/actions/image.actions";
 import Searchbar from "@/components/forms/Searchbar";
 import ImageCard from "@/components/miscellaneous/ImageCard";
 import Pagination from "@/components/shared/Pagination";
 
-const Home = ({ searchParams }: SearchParamProps) => {
+const Home = async ({ searchParams }: SearchParamProps) => {
   const page = Number(searchParams?.page) || 1;
-  const searchQuery = (searchParams?.query as string) || "";
+  const searchQuery = (searchParams?.q as string) || "";
 
-  const images: IImage[] = [];
-  const totalPages: number = 1;
+  const allImages = await getAllImages({ page, searchQuery });
 
   return (
     <main>
@@ -42,9 +42,9 @@ const Home = ({ searchParams }: SearchParamProps) => {
           {<Searchbar />}
         </div>
 
-        {images.length > 0 ? (
+        {allImages?.data?.length ? (
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
-            {images.map((image) => (
+            {allImages.data.map((image) => (
               <ImageCard image={image} key={image._id} />
             ))}
           </div>
@@ -54,7 +54,7 @@ const Home = ({ searchParams }: SearchParamProps) => {
           </div>
         )}
 
-        <Pagination page={page} totalPages={totalPages} />
+        <Pagination page={page} totalPages={allImages?.totalPages} />
       </section>
     </main>
   );
