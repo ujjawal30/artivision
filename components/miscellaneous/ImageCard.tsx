@@ -30,11 +30,11 @@ const ImageCard = ({ image }: ImageCardProps) => {
           className="h-52 w-full rounded-lg object-cover"
           sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
         />
-        <div className="flex-between">
-          <p className="p-20-semibold mr-3 line-clamp-1 text-dark-600">
+        <div className="flex items-center justify-between">
+          <p className="text-xl font-semibold mr-3 line-clamp-1 text-dark-600">
             {image.title}
           </p>
-          <Icon size={24} />
+          <Icon className="text-dark-400" size={24} />
         </div>
       </Link>
     </div>
