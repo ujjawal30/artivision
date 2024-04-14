@@ -2,8 +2,16 @@ import Link from "next/link";
 
 import { navLinks } from "@/constants";
 import Searchbar from "@/components/forms/Searchbar";
+import ImageCard from "@/components/miscellaneous/ImageCard";
+import Pagination from "@/components/shared/Pagination";
 
-const Home = () => {
+const Home = ({ searchParams }: SearchParamProps) => {
+  const page = Number(searchParams?.page) || 1;
+  const searchQuery = (searchParams?.query as string) || "";
+
+  const images: IImage[] = [];
+  const totalPages: number = 1;
+
   return (
     <main>
       <section className="bg-gradient-to-br from-claret-400 to-flamingo-500 sm:flex items-center justify-center hidden h-72 flex-col gap-8 rounded-2xl p-10">
@@ -33,6 +41,18 @@ const Home = () => {
           </h2>
           {<Searchbar />}
         </div>
+
+        {images.length > 0 ? (
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            {images.map((image) => (
+              <ImageCard image={image} key={image._id} />
+            ))}
+          </div>
+        ) : (
+          <div className="flex justify-center items-center h-60 w-full rounded-2xl border border-dark-400/10 bg-white/20">
+            <p className="text-xl font-semibold">Empty List</p>
+          </div>
+        )}
       </section>
     </main>
   );
