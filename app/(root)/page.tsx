@@ -53,6 +53,8 @@ const Home = ({ searchParams }: SearchParamProps) => {
             <p className="text-xl font-semibold">Empty List</p>
           </div>
         )}
+
+        <Pagination page={page} totalPages={totalPages} />
       </section>
     </main>
   );
