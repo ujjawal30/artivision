@@ -15,9 +15,7 @@ const TransformationsPage = async ({ params: { id } }: SearchParamProps) => {
   const { userId } = auth();
 
   const image = await getImageById(id);
-
   if (!image) redirect("/");
-  console.log("image.author :>> ", image.author);
 
   return (
     <div>
