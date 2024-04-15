@@ -3,8 +3,8 @@ import Link from "next/link";
 import { navLinks } from "@/constants";
 import { getAllImages } from "@/lib/actions/image.actions";
 import Searchbar from "@/components/forms/Searchbar";
-import ImageCard from "@/components/miscellaneous/ImageCard";
-import Pagination from "@/components/shared/Pagination";
+import ImageCard from "@/components/shared/ImageCard";
+import Pagination from "@/components/miscellaneous/Pagination";
 
 const Home = async ({ searchParams }: SearchParamProps) => {
   const page = Number(searchParams?.page) || 1;
