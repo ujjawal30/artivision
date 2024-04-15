@@ -137,7 +137,7 @@ export const getAllImages = async ({
       .populate({
         path: "author",
         model: User,
-        select: "_id firstName lastName",
+        select: "_id firstName lastName clerkId",
       });
 
     const totalImages = await Image.find(query).countDocuments();

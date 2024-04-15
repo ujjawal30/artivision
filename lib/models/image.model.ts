@@ -1,5 +1,7 @@
 import { Document, Model, Schema, model, models } from "mongoose";
 
+import { IUser } from "@/lib/models/user.model";
+
 export interface IImage extends Document {
   title: string;
   transformationType: string;
@@ -12,11 +14,7 @@ export interface IImage extends Document {
   aspectRatio?: string;
   color?: string;
   prompt?: string;
-  author?: {
-    _id: string;
-    firstName: string;
-    lastName: string;
-  };
+  author?: IUser;
   createdAt?: Date;
   updatedAt?: Date;
 }

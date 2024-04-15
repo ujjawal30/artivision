@@ -1,17 +1,13 @@
 import { Document, Model, Schema, model, models } from "mongoose";
 
+import { IUser } from "@/lib/models/user.model";
+
 export interface ITransaction extends Document {
   stripeId: string;
   amount: number;
   plan: string;
   credits: number;
-  user: {
-    _id: string;
-    clerkId: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-  };
+  user: IUser;
   createdAt: Date;
 }
 
