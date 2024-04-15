@@ -1,11 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { MouseEvent } from "react";
 import { PlaceholderValue } from "next/dist/shared/lib/get-img-props";
 import { DownloadIcon, LoaderIcon } from "lucide-react";
-import { CldImage } from "next-cloudinary";
+import { CldImage, getCldImageUrl } from "next-cloudinary";
 
-import { dataUrl, debounce, getImageSize } from "@/lib/utils";
+import { dataUrl, debounce, download, getImageSize } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 const TransformedImage = ({
@@ -20,6 +20,19 @@ const TransformedImage = ({
   console.log("image :>> ", image);
   console.log("title :>> ", title);
   console.log("transformationConfig :>> ", transformationConfig);
+
+  const downloadHandler = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    const fileURL = getCldImageUrl({
+      width: image?.width,
+      height: image?.height,
+      src: image?.publicId || "",
+      ...transformationConfig,
+    });
+
+    download(fileURL, title);
+  };
 
   const onTransformLoadHandler = () => {
     setIsTransforming && setIsTransforming(false);
@@ -40,6 +53,7 @@ const TransformedImage = ({
             variant="ghost"
             size="icon"
             className="flex items-center gap-2 px-2"
+            onClick={downloadHandler}
           >
             <DownloadIcon size={24} />
           </Button>
