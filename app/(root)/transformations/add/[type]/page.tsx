@@ -4,7 +4,7 @@ import { auth } from "@clerk/nextjs";
 
 import { transformationTypes } from "@/constants";
 import { getUser } from "@/lib/actions/user.actions";
-import Header from "@/components/shared/Header";
+import Header from "@/components/miscellaneous/Header";
 import TransformationForm from "@/components/forms/TransformationForm";
 
 const AddTransformationsPage = async ({

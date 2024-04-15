@@ -7,8 +7,8 @@ import { auth } from "@clerk/nextjs";
 import { getImageById } from "@/lib/actions/image.actions";
 import { getImageSize } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import Header from "@/components/shared/Header";
 import TransformedImage from "@/components/shared/TransformedImage";
+import Header from "@/components/miscellaneous/Header";
 import Info from "@/components/miscellaneous/Info";
 
 const TransformationsPage = async ({ params: { id } }: SearchParamProps) => {

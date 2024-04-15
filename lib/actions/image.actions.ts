@@ -62,8 +62,9 @@ export const updateImage = async (
     await connectToDatabase();
 
     const imageToUpdate = await Image.findById(imageId);
+    console.log("imageToUpdate :>> ", imageToUpdate);
 
-    if (!imageToUpdate || imageToUpdate.author?._id !== userId)
+    if (!imageToUpdate || imageToUpdate.author?.toString() !== userId)
       handleError("Unauthorized or image not found");
 
     const updatedImage = await Image.findByIdAndUpdate(imageId, imageData, {

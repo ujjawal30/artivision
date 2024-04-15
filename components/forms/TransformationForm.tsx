@@ -119,6 +119,7 @@ const TransformationForm = ({
             userId,
             `/transformations/${data?._id}`
           );
+          console.log("updateImage :>> ", updateImage);
 
           if (updatedImage) {
             form.reset();
