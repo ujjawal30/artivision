@@ -42,7 +42,7 @@ export const getImageById = async (
     const image = await Image.findById(imageId).populate({
       path: "author",
       model: User,
-      select: "_id firstName lastName",
+      select: "_id firstName lastName clerkId",
     });
 
     if (!image) handleError("Image not found");
