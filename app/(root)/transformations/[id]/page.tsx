@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import TransformedImage from "@/components/shared/TransformedImage";
 import Header from "@/components/miscellaneous/Header";
 import Info from "@/components/miscellaneous/Info";
+import DeleteImage from "@/components/dialogs/DeleteImage";
 
 const TransformationsPage = async ({ params: { id } }: SearchParamProps) => {
   const { userId } = auth();
@@ -62,12 +63,14 @@ const TransformationsPage = async ({ params: { id } }: SearchParamProps) => {
             <Button
               asChild
               type="button"
-              className="bg-gradient-to-r from-claret-500 to-flamingo-500 rounded-full py-4 px-6 font-semibold h-12 w-full md:h-13 capitalize"
+              className="bg-gradient-to-r from-claret-500 to-flamingo-500 rounded-2xl py-4 px-6 font-semibold h-12 w-full md:h-14 capitalize"
             >
               <Link href={`/transformations/${image._id}/update`}>
                 Update Image
               </Link>
             </Button>
+
+            <DeleteImage imageId={image._id} />
           </div>
         )}
       </section>
