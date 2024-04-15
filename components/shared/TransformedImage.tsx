@@ -41,7 +41,7 @@ const TransformedImage = ({
   const onTransformErrorHandler = () => {
     debounce(() => {
       setIsTransforming && setIsTransforming(false);
-    }, 8000);
+    }, 8000)();
   };
 
   return (

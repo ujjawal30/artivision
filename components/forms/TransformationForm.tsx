@@ -159,15 +159,15 @@ const TransformationForm = ({
     type: "recolor" | "remove",
     onChangeField: (value: string) => void
   ) => {
-    // debounce(() => {
-    setNewTransformation((prev: any) => ({
-      ...prev,
-      [type]: {
-        ...prev?.[type],
-        [fieldName === "prompt" ? "prompt" : "to"]: value,
-      },
-    }));
-    // }, 1000);
+    debounce(() => {
+      setNewTransformation((prev: any) => ({
+        ...prev,
+        [type]: {
+          ...prev?.[type],
+          [fieldName === "prompt" ? "prompt" : "to"]: value,
+        },
+      }));
+    }, 1000)();
 
     return onChangeField(value);
   };
@@ -219,6 +219,7 @@ const TransformationForm = ({
                 onValueChange={(value: aspectRatioKey) =>
                   onSelectFieldHandler(value, field.onChange)
                 }
+                value={field.value}
               >
                 <SelectTrigger className="w-full border-2 border-claret-200/20 shadow-sm shadow-claret-200/15 rounded-2xl h-12 md:h-14 text-dark-600 font-semibold disabled:opacity-100 placeholder:text-dark-400/50 px-4 py-3 focus:ring-offset-0 focus-visible:ring-transparent focus:ring-transparent focus-visible:ring-0 focus-visible:outline-none">
                   <SelectValue placeholder="Select Size" />
