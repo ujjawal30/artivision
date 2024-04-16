@@ -33,6 +33,17 @@ declare type AllImagesData = {
   savedImages: number;
 };
 
+declare type UserImagesParams = {
+  limit?: number;
+  page: number;
+  userId: string;
+};
+
+declare type UserImagesData = {
+  data: IImage[];
+  totalPages: number;
+};
+
 declare type CheckoutTransactionParams = {
   plan: string;
   credits: number;
