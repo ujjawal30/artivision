@@ -4,9 +4,10 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { NavLink as NavLinkProps } from "@/constants";
 import { cn } from "@/lib/utils";
 
-interface INavLinkProps extends NavLink {
+interface INavLinkProps extends NavLinkProps {
   onClick?: () => void;
 }
 

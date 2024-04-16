@@ -1,15 +1,20 @@
-"use client";
-
 import {
   BadgeIndianRupeeIcon,
   CameraIcon,
   HomeIcon,
   ImageIcon,
+  LucideIcon,
   ScanLine,
   Settings2Icon,
   StarsIcon,
   UserIcon,
 } from "lucide-react";
+
+export type NavLink = {
+  label: string;
+  route: string;
+  icon: LucideIcon;
+};
 
 export const navLinks: NavLink[] = [
   {

@@ -1,11 +1,5 @@
-type LucideIcon = import("lucide-react").LucideIcon;
+// type LucideIcon = import("lucide-react").LucideIcon;
 type IImage = import("@/lib/models/image.model").IImage;
-
-declare type NavLink = {
-  label: string;
-  route: string;
-  icon: LucideIcon;
-};
 
 declare type CreateUserParams = {
   clerkId: string;
