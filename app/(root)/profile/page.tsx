@@ -1,13 +1,13 @@
-import Searchbar from "@/components/forms/Searchbar";
-import Header from "@/components/miscellaneous/Header";
-import Pagination from "@/components/miscellaneous/Pagination";
-import ImageCard from "@/components/shared/ImageCard";
-import { getUserImages } from "@/lib/actions/image.actions";
-import { getUser } from "@/lib/actions/user.actions";
+import React from "react";
+import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs";
 import { BadgeIndianRupeeIcon, ImagesIcon } from "lucide-react";
-import { redirect } from "next/navigation";
-import React from "react";
+
+import { getUser } from "@/lib/actions/user.actions";
+import { getUserImages } from "@/lib/actions/image.actions";
+import Header from "@/components/miscellaneous/Header";
+import ImageCard from "@/components/shared/ImageCard";
+import Pagination from "@/components/miscellaneous/Pagination";
 
 const ProfilePage = async ({ searchParams }: SearchParamProps) => {
   const page = Number(searchParams?.page) || 1;

@@ -1,12 +1,13 @@
-import Checkout from "@/components/forms/Checkout";
-import Header from "@/components/miscellaneous/Header";
-import { Button } from "@/components/ui/button";
-import { plans } from "@/constants";
-import { getUser } from "@/lib/actions/user.actions";
+import React from "react";
+import { redirect } from "next/navigation";
 import { SignedIn, auth } from "@clerk/nextjs";
 import { CheckCircleIcon, XCircle, ZapIcon } from "lucide-react";
-import { redirect } from "next/navigation";
-import React from "react";
+
+import { plans } from "@/constants";
+import { getUser } from "@/lib/actions/user.actions";
+import { Button } from "@/components/ui/button";
+import Header from "@/components/miscellaneous/Header";
+import Checkout from "@/components/forms/Checkout";
 
 const CreditsPage = async () => {
   const { userId } = auth();
@@ -43,7 +44,6 @@ const CreditsPage = async () => {
                 <p>{plan.credits.toLocaleString("en-IN")} Credits</p>
               </div>
 
-              {/* Inclusions */}
               <ul className="flex flex-col gap-5 py-9">
                 {plan.inclusions.map((inclusion) => (
                   <li

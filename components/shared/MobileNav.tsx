@@ -5,7 +5,7 @@ import { SignedIn, UserButton } from "@clerk/nextjs";
 import { MenuIcon } from "lucide-react";
 
 import { navLinks, userNavLinks } from "@/constants";
-import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Logo from "@/components/miscellaneous/Logo";
 import NavLink from "@/components/miscellaneous/NavLink";
 

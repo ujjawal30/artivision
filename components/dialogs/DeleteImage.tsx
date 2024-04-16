@@ -2,6 +2,7 @@
 
 import { useTransition } from "react";
 
+import { deleteImage } from "@/lib/actions/image.actions";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -13,7 +14,6 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { deleteImage } from "@/lib/actions/image.actions";
 import { Button } from "@/components/ui/button";
 
 interface DeleteImageProps {
