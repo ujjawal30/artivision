@@ -49,7 +49,7 @@ export const createTransaction = async (
 
     const newTransaction = await Transaction.create(transaction);
 
-    await updateCredits(transaction.userId, transaction.credits);
+    await updateCredits(transaction.user, transaction.credits);
 
     return JSON.parse(JSON.stringify(newTransaction));
   } catch (error) {

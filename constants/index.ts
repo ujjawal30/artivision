@@ -129,3 +129,78 @@ export const defaultValues = {
 export type aspectRatioKey = keyof typeof aspectRatioOptions;
 
 export const CREDIT_FEE = -1;
+
+export const plans = [
+  {
+    _id: 1,
+    name: "Free",
+    price: 0,
+    credits: 10,
+    inclusions: [
+      {
+        label: "10 Free Credits",
+        isIncluded: true,
+      },
+      {
+        label: "Basic Access to Services",
+        isIncluded: true,
+      },
+      {
+        label: "Priority Customer Support",
+        isIncluded: false,
+      },
+      {
+        label: "Priority Updates",
+        isIncluded: false,
+      },
+    ],
+  },
+  {
+    _id: 2,
+    name: "Pro Package",
+    price: 999,
+    credits: 100,
+    inclusions: [
+      {
+        label: "100 Credits",
+        isIncluded: true,
+      },
+      {
+        label: "Full Access to Services",
+        isIncluded: true,
+      },
+      {
+        label: "Priority Customer Support",
+        isIncluded: true,
+      },
+      {
+        label: "Priority Updates",
+        isIncluded: false,
+      },
+    ],
+  },
+  {
+    _id: 3,
+    name: "Premium Package",
+    price: 4999,
+    credits: 1000,
+    inclusions: [
+      {
+        label: "1,000 Credits",
+        isIncluded: true,
+      },
+      {
+        label: "Full Access to Services",
+        isIncluded: true,
+      },
+      {
+        label: "Priority Customer Support",
+        isIncluded: true,
+      },
+      {
+        label: "Priority Updates",
+        isIncluded: true,
+      },
+    ],
+  },
+];

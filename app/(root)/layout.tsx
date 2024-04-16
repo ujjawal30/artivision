@@ -14,7 +14,7 @@ const RootLayout = ({
       <MobileNav />
 
       <div className="mt-16 flex-1 overflow-auto py-8 lg:mt-0 lg:max-h-screen lg:py-10">
-        <div className="max-w-5xl mx-auto px-5 md:px-10 w-full leading-snug">
+        <div className="max-w-6xl mx-auto px-4 md:px-10 w-full leading-snug">
           {children}
         </div>
       </div>

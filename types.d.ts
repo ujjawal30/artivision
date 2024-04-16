@@ -45,7 +45,7 @@ declare type CreateTransactionParams = {
   amount: number;
   credits: number;
   plan: string;
-  userId: string;
+  user: string;
   createdAt: Date;
 };
 
