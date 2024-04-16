@@ -33,6 +33,22 @@ declare type AllImagesData = {
   savedImages: number;
 };
 
+declare type CheckoutTransactionParams = {
+  plan: string;
+  credits: number;
+  amount: number;
+  userId: string;
+};
+
+declare type CreateTransactionParams = {
+  stripeId: string;
+  amount: number;
+  credits: number;
+  plan: string;
+  userId: string;
+  createdAt: Date;
+};
+
 declare type TransformedImageData = {
   title: string;
   publicId: string;
