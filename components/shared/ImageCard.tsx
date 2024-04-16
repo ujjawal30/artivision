@@ -5,14 +5,16 @@ import Link from "next/link";
 import { CldImage } from "next-cloudinary";
 
 import { transformationTypes } from "@/constants";
+import { fetchIcon } from "@/constants/icons";
 
 interface ImageCardProps {
   image: IImage;
 }
 
 const ImageCard = ({ image }: ImageCardProps) => {
-  const Icon =
-    transformationTypes[image.transformationType as TransformationTypeKey].icon;
+  const Icon = fetchIcon(
+    transformationTypes[image.transformationType as TransformationTypeKey].icon
+  );
 
   return (
     <div>

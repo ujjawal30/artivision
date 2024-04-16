@@ -1,51 +1,33 @@
-import {
-  BadgeIndianRupeeIcon,
-  CameraIcon,
-  HomeIcon,
-  ImageIcon,
-  LucideIcon,
-  ScanLine,
-  Settings2Icon,
-  StarsIcon,
-  UserIcon,
-} from "lucide-react";
-
-export type NavLink = {
-  label: string;
-  route: string;
-  icon: LucideIcon;
-};
-
 export const navLinks: NavLink[] = [
   {
     label: "Home",
     route: "/",
-    icon: HomeIcon,
+    icon: "HomeIcon",
   },
   {
     label: "Image Restore",
     route: "/transformations/add/restore",
-    icon: ImageIcon,
+    icon: "ImageIcon",
   },
   {
     label: "Generative Fill",
     route: "/transformations/add/fill",
-    icon: StarsIcon,
+    icon: "StarsIcon",
   },
   {
     label: "Object Remove",
     route: "/transformations/add/remove",
-    icon: ScanLine,
+    icon: "ScanLine",
   },
   {
     label: "Object Recolor",
     route: "/transformations/add/recolor",
-    icon: Settings2Icon,
+    icon: "Settings2Icon",
   },
   {
     label: "Background Remove",
     route: "/transformations/add/remove-bg",
-    icon: CameraIcon,
+    icon: "CameraIcon",
   },
 ];
 
@@ -53,12 +35,12 @@ export const userNavLinks: NavLink[] = [
   {
     label: "Profile",
     route: "/profile",
-    icon: UserIcon,
+    icon: "UserIcon",
   },
   {
     label: "Buy Credits",
     route: "/credits",
-    icon: BadgeIndianRupeeIcon,
+    icon: "BadgeIndianRupeeIcon",
   },
 ];
 
@@ -68,14 +50,14 @@ export const transformationTypes = {
     title: "Restore Image",
     subtitle: "Refine images by removing noise and imperfections",
     config: { restore: true },
-    icon: ImageIcon,
+    icon: "ImageIcon",
   },
   fill: {
     type: "fill",
     title: "Generative Fill",
     subtitle: "Enhance an image's dimensions using AI outpainting",
     config: { fillBackground: true },
-    icon: StarsIcon,
+    icon: "StarsIcon",
   },
   remove: {
     type: "remove",
@@ -84,7 +66,7 @@ export const transformationTypes = {
     config: {
       remove: { prompt: "", removeShadow: true, multiple: true },
     },
-    icon: ScanLine,
+    icon: "ScanLine",
   },
   recolor: {
     type: "recolor",
@@ -93,14 +75,14 @@ export const transformationTypes = {
     config: {
       recolor: { prompt: "", to: "", multiple: true },
     },
-    icon: Settings2Icon,
+    icon: "Settings2Icon",
   },
   "remove-bg": {
     type: "remove-bg",
     title: "Background Remove",
     subtitle: "Removes the background of the image using AI",
     config: { removeBackground: true },
-    icon: CameraIcon,
+    icon: "CameraIcon",
   },
 };
 

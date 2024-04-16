@@ -1,6 +1,12 @@
 // type LucideIcon = import("lucide-react").LucideIcon;
 type IImage = import("@/lib/models/image.model").IImage;
 
+declare type NavLink = {
+  label: string;
+  route: string;
+  icon: string;
+};
+
 declare type CreateUserParams = {
   clerkId: string;
   email: string;

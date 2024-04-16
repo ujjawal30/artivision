@@ -4,17 +4,18 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { NavLink as NavLinkProps } from "@/constants";
 import { cn } from "@/lib/utils";
+import { fetchIcon } from "@/constants/icons";
 
-interface INavLinkProps extends NavLinkProps {
+interface INavLinkProps extends NavLink {
   onClick?: () => void;
 }
 
-const NavLink = ({ label, route, icon: Icon, onClick }: INavLinkProps) => {
+const NavLink = ({ label, route, icon, onClick }: INavLinkProps) => {
   const pathname = usePathname();
 
   const isActive = route === pathname;
+  const Icon = fetchIcon(icon);
 
   return (
     <div
