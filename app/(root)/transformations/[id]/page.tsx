@@ -34,10 +34,10 @@ const TransformationsPage = async ({ params: { id } }: SearchParamProps) => {
         )}
       </section>
 
-      <section className="mt-10 border-t border-dark-400/15">
+      <section className="mt-10 border-t border-gray-400/15">
         <div className="grid h-fit min-h-48 grid-cols-1 gap-5 py-8 md:grid-cols-2">
           <div className="flex flex-col gap-4">
-            <h3 className="text-3xl font-bold text-dark-600">Original</h3>
+            <h3 className="text-3xl font-bold text-gray-600">Original</h3>
 
             <Image
               width={getImageSize(image.transformationType, image, "width")}

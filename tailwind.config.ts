@@ -35,12 +35,6 @@ const config = {
         flamingo: {
           500: "#f3631d",
         },
-        dark: {
-          400: "#7986AC",
-          500: "#606C80",
-          600: "#2B3674",
-          700: "#384262",
-        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

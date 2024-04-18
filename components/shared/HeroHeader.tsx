@@ -8,7 +8,7 @@ import { fetchIcon } from "@/constants/icons";
 
 const HeroHeader = () => {
   return (
-    <section className="bg-gradient-to-br from-claret-400 to-flamingo-500 sm:flex items-center justify-center hidden h-72 flex-col gap-8 rounded-2xl p-10">
+    <section className="bg-gradient-to-br from-claret-500 to-flamingo-500 sm:flex items-center justify-center hidden h-72 flex-col gap-8 rounded-2xl p-10">
       <h1 className="text-[40px] font-semibold flex-wrap text-center text-white shadow-sm">
         Unleash your creativity with Artivision
       </h1>

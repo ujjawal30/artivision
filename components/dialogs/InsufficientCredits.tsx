@@ -34,9 +34,9 @@ const InsufficientCredits = () => {
       <AlertDialogContent className="!rounded-3xl">
         <AlertDialogHeader>
           <div className="flex justify-between items-center">
-            <p className="font-semibold text-dark-400">Insufficient Credits</p>
+            <p className="font-semibold text-gray-400">Insufficient Credits</p>
             <AlertDialogCancel
-              className="border-0 p-0 hover:bg-transparent text-dark-400"
+              className="border-0 p-0 hover:bg-transparent text-gray-400"
               onClick={() => router.push("/profile")}
             >
               <BadgeIndianRupeeIcon size={24} />
@@ -50,7 +50,7 @@ const InsufficientCredits = () => {
             height={122}
           />
 
-          <AlertDialogTitle className="text-2xl font-bold text-dark-600">
+          <AlertDialogTitle className="text-2xl font-bold text-gray-600">
             Oops.... Looks like you&#39;ve ran out of free credits!
           </AlertDialogTitle>
 
@@ -61,7 +61,7 @@ const InsufficientCredits = () => {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel
-            className="rounded-2xl py-4 px-6 h-12 md:h-14 font-semibold w-full bg-claret-100 text-dark-600"
+            className="rounded-2xl py-4 px-6 h-12 md:h-14 font-semibold w-full bg-claret-100 text-gray-600"
             onClick={() => router.push("/profile")}
           >
             No, Cancel

@@ -63,7 +63,7 @@ const MediaUploader = ({
       >
         {({ open }) => (
           <div className="flex flex-col gap-4">
-            <h3 className="font-bold text-3xl text-dark-600">Original</h3>
+            <h3 className="font-bold text-3xl text-gray-600">Original</h3>
 
             {publicId ? (
               <div className="cursor-pointer overflow-hidden rounded-xl">
@@ -83,9 +83,9 @@ const MediaUploader = ({
                 onClick={() => open()}
               >
                 <div className="rounded-2xl bg-white p-5 shadow-sm shadow-claret-200/50">
-                  <ImagePlusIcon size={24} className="text-dark-600" />
+                  <ImagePlusIcon size={24} className="text-gray-600" />
                 </div>
-                <p className="text-center font-medium text-sm text-dark-600">
+                <p className="text-center font-medium text-sm text-gray-600">
                   Click here to upload your original image
                 </p>
               </div>

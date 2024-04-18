@@ -11,9 +11,9 @@ interface InfoProps {
 const Info = ({ title, text, optional = false }: InfoProps) => {
   return (
     <div className="flex items-center gap-2">
-      {optional && <p className="hidden text-dark-400/50 md:block">&#x25CF;</p>}
+      {optional && <p className="hidden text-gray-400/50 md:block">&#x25CF;</p>}
       <div className="text-sm font-medium flex gap-2 ">
-        <p className="text-dark-600">{title}:</p>
+        <p className="text-gray-600">{title}:</p>
         <p className=" capitalize text-claret-400">{text}</p>
       </div>
     </div>

@@ -38,7 +38,7 @@ const CreditsPage = async () => {
                 <p className="text-xl font-semibold mt-2 text-claret-500">
                   {plan.name}
                 </p>
-                <p className="text-4xl font-semibold sm:text-[44px] text-dark-600">
+                <p className="text-4xl font-semibold sm:text-[44px] text-gray-600">
                   &#x20B9;{plan.price.toLocaleString("en-IN")}
                 </p>
                 <p>{plan.credits.toLocaleString("en-IN")} Credits</p>

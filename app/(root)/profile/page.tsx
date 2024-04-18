@@ -29,7 +29,7 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
           <p className="max-sm:text-sm font-medium">CREDITS AVAILABLE</p>
           <div className="mt-4 flex items-center gap-4">
             <BadgeIndianRupeeIcon size={48} />
-            <h2 className="text-3xl sm:text-4xl font-bold text-dark-600">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-600">
               {user.creditBalance}
             </h2>
           </div>
@@ -39,7 +39,7 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
           <p className="max-sm:text-sm font-medium">IMAGE MANIPULATION DONE</p>
           <div className="mt-4 flex items-center gap-4">
             <ImagesIcon size={48} />
-            <h2 className="text-3xl sm:text-4xl font-bold text-dark-600">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-600">
               {images?.data.length}
             </h2>
           </div>
@@ -47,7 +47,7 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
       </section>
 
       <section className="mt-8 md:mt-14">
-        <h2 className="text-3xl font-bold md:text-4xl text-dark-600 mb-6">
+        <h2 className="text-3xl font-bold md:text-4xl text-gray-600 mb-6">
           My Transformations
         </h2>
 
@@ -58,7 +58,7 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
             ))}
           </div>
         ) : (
-          <div className="flex justify-center items-center h-60 w-full rounded-2xl border border-dark-400/10 bg-white/20">
+          <div className="flex justify-center items-center h-60 w-full rounded-2xl border border-gray-400/10 bg-white/20">
             <p className="text-xl font-semibold">Empty List</p>
           </div>
         )}

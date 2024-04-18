@@ -47,7 +47,7 @@ const TransformedImage = ({
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between">
-        <h3 className="font-bold text-3xl text-dark-600">Transformed</h3>
+        <h3 className="font-bold text-3xl text-gray-600">Transformed</h3>
         {hasDownload && (
           <Button
             variant="ghost"
@@ -76,13 +76,13 @@ const TransformedImage = ({
           />
 
           {isTransforming && (
-            <div className="flex justify-center items-center absolute left-1/2 top-1/2 size-full -translate-x-1/2 -translate-y-1/2 flex-col gap-2 rounded-xl border bg-dark-700/90">
+            <div className="flex justify-center items-center absolute left-1/2 top-1/2 size-full -translate-x-1/2 -translate-y-1/2 flex-col gap-2 rounded-xl border bg-gray-700/90">
               <LoaderIcon size={48} className="text-white animate-spin" />
             </div>
           )}
         </div>
       ) : (
-        <div className="flex items-center justify-center font-medium text-sm text-dark-600 h-full min-h-72 flex-col gap-5 rounded-2xl border border-dashed bg-claret-100/20 shadow-inner">
+        <div className="flex items-center justify-center font-medium text-sm text-gray-600 h-full min-h-72 flex-col gap-5 rounded-2xl border border-dashed bg-claret-100/20 shadow-inner">
           Transformed Image
         </div>
       )}
