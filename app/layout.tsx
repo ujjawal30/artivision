@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import "./globals.css";
@@ -8,7 +8,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Poppins({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "ArtiVision",
@@ -21,7 +21,11 @@ const Layout = ({
   children: ReactNode;
 }>) => {
   return (
-    <ClerkProvider appearance={{ variables: { colorPrimary: "#7b1c44" } }}>
+    <ClerkProvider
+      appearance={{
+        variables: { colorPrimary: "#7b1c44" },
+      }}
+    >
       <html lang="en">
         <body className={cn("antialiased", inter.className)}>
           {children}
